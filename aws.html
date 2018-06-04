@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2></h2>
+            <h4>Bounded Context</h4>
+        </section>
+        <section>
+            <section id="what">
+                <h3>What is Content Management?</h3>
+                <ul>
+                    <li class="fragment fade-up">Where contents are created, edited, and assembled</li>
+                    <li class="fragment fade-up">Where these contents are published for consumption</li>
+                    <li class="fragment fade-up">Where managed contents are searchable</li>
+                </ul>
+            </section>
+            <section id="glossary">
+                <h3>Glossary</h3>
+                <dl>
+                    <dt>Bit</dt>
+                    <dd>A foundational unit of content</dd>
+                    <dd>It is identified with an immutable id.</dd>
+                    <dd>An aggregate consisting of many attributes</dd>
+                    <dt>Report (a.k.a. Chapter)</dt>
+                    <dd>A potentially hierarchical collection of Bits</dd>
+                    <dd>It is identified with an immutable id, and lives under a Dashboard/Module</dd>
+                    <dt>Note</dt>
+                    <dd>A flat collection of Bits</dd>
+                    <dd>It is identified with an immutable id.</dd>
+                    <dt>Section</dt>
+                    <dd>A bit group container under Report</dd>
+                    <dd>Carries its heading, but may not contain any Subsections</dd>
+                    <dt>Subsection</dt>
+                    <dd>A bit group container under Section</dd>
+                    <dd>Carries its own heading and sentiment value</dd>
+                    <dt>Module</dt>
+                    <dd>A facet of a dashboard loosely representing the collection of reports within</dd>
+                    <dd>Forms a storyboard, combined with a dashboard</dd>
+                    <dt>Dashboard</dt>
+                    <dd>A non-complete combination of industry and region, but can be a value with no industry</dd>
+                    <dd>Represents a highest level container of contents</dd>
+                </dl>
+            </section>
+            <section id="glossary">
+                <h3>Glossary - continued</h3>
+                <dl>
+                    <dt>Key to Investors</dt>
+                    <dd>Why would the investors read this content?</dd>
+                    <dt>Catalyst</dt>
+                    <dd>What makes it relevant NOW?</dd>
+                    <dt>Impacted Entities</dt>
+                    <dd>What are the entities that can be impacted by this research?</dd>
+                    <dd>Both tickerted entities and description are acceptable.</dd>
+                    <dt>Target Date</dt>
+                    <dd>Date by which the backing research needs to be published.</dd>
+                    <dt>Recommendation</dt>
+                    <dd>Feedback provided by Regional/Global coordinator or Management.</dd>
+                    <dd>Includes the decision of promotion scope and corresponding comments.</dd>
+                    <dt>Market Coverage</dt>
+                    <dd>Level of current market coverage</dd>
+                    <dt>BN Coverage</dt>
+                    <dd>Level of BN coverage</dd>
+                </dl>
+            </section>
+            <section id="glossary">
+                <h3>Glossary - continued</h3>
+                <dl>
+                    <dt>BN Contact</dt>
+                    <dd>BN contact person who can confirm BN coverage</dd>
+                    <dt>Pitch</dt>
+                    <dd>Information regarding the pitch BI made to external organizations.</dd>
+                    <dd>Consists of who and when, plus any result of the pitch is logged within.</dd>
+                    <ul>
+                        <li>Who</li>
+                        <li>Pitch Venue</li>
+                        <li></li>
+                    </ul>
+                    <dt>Dashboard</dt>
+                    <dd>To be determined: Currently represents the industry/region combination</dd>
+                    <dt>Bitslot Id</dt>
+                    <dd>To be determined: Publish planning schedules are kept in Bitslot</dd>
+                    <dt>Bit Id</dt>
+                    <dd>A number of Bits that resulting from this idea </dd>
+                </dl>
+            </section>
+            <section id="details">
+                <h3>Commands/Events</h3>
+                <table>
+                    <thead>
+                        <th>Command</th>
+                        <th>Event</th>
+                        <th>Description</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Create</td>
+                            <td>IdeaCreated</td>
+                            <td>A new Idea win an id is created</td>
+                        </tr>
+                        <tr>
+                            <td>UpdateProperty</td>
+                            <td>PropertyUpdated</td>
+                            <td>Any property can be updated together</td>
+                        </tr>
+                        <tr>
+                            <td>PlanPitch</td>
+                            <td>PropertyUpdated</td>
+                            <td>Pitch type and schedule is updated</td>
+                        </tr>
+                        <tr>
+                            <td>RecordPitch</td>
+                            <td>PropertyUpdated</td>
+                            <td>Pitch took place and additional information logged</td>
+                        </tr>
+                        <tr>
+                            <td>AttachBit</td>
+                            <td>BitListUpdated</td>
+                            <td>Existing Bit is added to idea</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+        <section id="design">
+            <section>
+                <h4>Idea Management application design</h4>
+                <img src="image/idea_management_overview.svg"></img>
+            </section>
+            <section id="event_store">
+                <h4>Event Store</h4>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </section>
+        </section>
+        <section id="use cases">
+            <section>
+                <h5>Bit 4 (new bit) is added to Report A.</h5>
+                <div><img src="image/use_case_1.svg"></div>
+            </section>
+        </section>
+        <section id="proposal">
+            <section>
+                <h4>Publishing Overview</h4>
+                <div><img src="image/Collaboration.svg">
+                </div>
+            </section>
+            <section>
+                <h3>Event-Driven Architecture</h3>
+                <dl>
+                    <dt>Performance</dt>
+                    <dd>Improved throughput</dd>
+                    <dd>Handles backpressure efficiently</dd>
+                    <dt>Integrity</dt>
+                    <dd>Retains every published impression forever</dd>
+                    <dd>Handles backpressure efficiently</dd>
+                    <dt>Flexibility</dt>
+                    <dd>Publishes content in the form of events</dd>
+                    <dd>Decouples publishing from alerting</dd>
+                    <dd>Easy to develop additional services</dd>
+                </dl>
+                <aside class="notes">
+                    <ul>
+                        <li>Custom alerting solution</li>
+                        <li>Automatic content verification</li>
+                        <li>Offline previewing service</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <h3>Building Plan A</h3>
+                <ol>
+                    <li>Build Research Note publishing in the new platform</li>
+                    <li>Integrate Research Report publishing with the platform</li>
+                </ol>
+            </section>
+            <section>
+                <h3>Building Plan B</h3>
+                <ol>
+                    <li>Build Research Report publishing platform</li>
+                    <li>Migrate current content</li>
+                    <li>Extend the platform to accommodate Research Note</li>
+                </ol>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Publishing Platform</h4>
+                <div><img src="image/publishing_architecture.svg">
+                </div>
+                <ul>
+                    <li>Decoupling of Content and Alert</li>
+                    <ul>
+                        <li>Customizable marketing opportunity</li>
+                        <li>Content availability improvement</li>
+                    </ul>
+                    <li>Aggregate Domain models</li>
+                    <ul>
+                        <li>Flexible model evolution</li>
+                    </ul>
+                </ul>
+            </section>
+        </section>
+    </div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: false,
+        center: true,
+        fragments: true,
+        showNotes: true,
+        slideNumber: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: Reveal.navigateNext,
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+        // Hides the address bar on mobile devices
+        hideAddressBar: true,
+        
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // Parallax background image
+        parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+        // Parallax background size
+        parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+        // Number of pixels to move the parallax background per slide
+        // - Calculated automatically unless specified
+        // - Set to 0 to disable movement along an axis
+        parallaxBackgroundHorizontal: null,
+        parallaxBackgroundVertical: null,
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/notes/notes.js' }
+        ]
+    });
+    Reveal.configure({
+        width: 1800,
+        height: 1200,
+        minScale: 0.5,
+        maxScale: 1.7
+    });
+</script>
+</body>
+</html>
