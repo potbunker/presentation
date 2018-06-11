@@ -36,9 +36,6 @@
                         </ul>
                 </aside>
             </section>
-            <section>
-                <h4>What, and How</h4>
-            </section>
         </section>
         <section id="troubleshooter">
             <section>
@@ -47,9 +44,9 @@
             <section id="bugs">
                 <h3>DETECTIVE</h3>
                 <ul>
-                        <li class="fragment fade-up">버그는 의도하지 않은 피쳐</li>
-                        <li class="fragment fade-up">그놈들은 항상 존재한다</li>
-                        <li class="fragment fade-up">숨어있다가 부르면 나온다</li>
+                    <li class="fragment fade-up">버그는 의도하지 않은 기능(피쳐)</li>
+                    <li class="fragment fade-up">그놈들은 항상 존재한다</li>
+                    <li class="fragment fade-up">숨어있다가 부르면 나온다</li>
                     <li class="fragment fade-up">미스테리란 없다</li>
                 </ul>
             </section>
@@ -93,6 +90,10 @@
                     
                     – Jackie Stewart, racing driver
                 </pre>
+                <aside class="notes">
+                    DO NOT avoid pre-optimization
+                    Know what you expect and measure against it
+                </aside>
             </section>
         </section>
         <section id="communicator">
@@ -147,6 +148,14 @@
                         height="800px">
                 </iframe>
             </section>
+        </section>
+        <section data-markdown>
+            <textarea>
+                ```scala
+                val lifeEvents = List(birth, ... firstCode, ... firstJob, ...)
+                val you = lifeEvents.reduce(_ + _)
+                ```
+            </textarea>
         </section>
     </div>
 </div>
