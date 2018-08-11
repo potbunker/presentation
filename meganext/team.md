@@ -5,3 +5,5 @@
 * Trust your team
 * Provide career path for non-manager
     * Don't make your best engineer manager
+
+[Conversation for Action](../image/CofA-Graphic2.jpg)
