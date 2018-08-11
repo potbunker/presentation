@@ -6,3 +6,8 @@
 * See what they do. Don't listen to your customers. 
 
 ## Customers want Simplicity
+
+
+Note:
+From the game of Go
+Know when to fold. When to give up. When to say no.
