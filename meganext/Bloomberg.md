@@ -2,6 +2,7 @@
 
 [Introducing Bloomberg](https://www.bloomberg.com/company/?utm_source=bloomberg-menu&utm_medium=terminal)
 
+---
 
 1. Bloomberg is a Data Company
 
