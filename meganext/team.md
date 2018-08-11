@@ -6,4 +6,4 @@
 * Provide career path for non-manager
     * Don't make your best engineer manager
 
-[Conversation for Action](file://image/CofA-Graphic2.jpg)
+[Conversation for Action](file://presentation/image/CofA-Graphic2.jpg)
