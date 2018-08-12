@@ -11,3 +11,5 @@
 Note:
 From the game of Go
 Know when to fold. When to give up. When to say no.
+
+Why do you value customers you don't have more than customers you have?
